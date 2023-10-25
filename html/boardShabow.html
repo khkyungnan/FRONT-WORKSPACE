@@ -19,14 +19,42 @@
 
     }
 
-    
+    .container {
+        max-width: 800px;
+        margin: 0 auto; /*가로로 가운데 정렬*/
+    }
+    h1 {
+        text-align: center;
+    }
 
 </style>
 
 </head>
 <body>
-<h2>새 게시글 작성</h2>
-<button type="submit">작성완료</button>
+    <div class="container">
+        <h1>점심 게시판</h1>
+        <ul>
+            <!-- 게시물 목록 작성하는 곳-->
+            <li>
+                <h2>맥주창고 역삼점</h2>
+                <p>메뉴 더보기 -> <a href="https://www.instagram.com/lunch_mz/?hl=ko">클릭</a></p>
+            </li>
+            <li>
+                <h2>명동칼국수 역삼점</h2>
+                <p>명동칼국수 9000원</p>
+            </li>
+        </ul>
 
+        <div>
+            <!-- 메뉴 추가하는 추가란-->
+            <h2>새 게시물 작성하기</h2>
+            <form>
+                <input type="text" placeholder="제목">
+                <textarea placeholder="내용작성하기"></textarea>
+                <button type="submit">작성완료</button>
+            </form>
+
+        </div>
+    </div>
 </body>
 </html>
