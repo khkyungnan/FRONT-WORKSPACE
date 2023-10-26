@@ -52,7 +52,14 @@ input[type="text"], textarea{
     margin: 5px 0;
 }
 
-
+button[type="submit"]{
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding:10px 20px;
+    font-size:  18px;
+    cursor: pointer;
+}
 
 
 
