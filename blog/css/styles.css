@@ -11,6 +11,10 @@ h1 {
     font-size: 28px;
 }
 
+h2 {
+    font-size: 20px;
+}
+
 #container {
     width: 80%;
     margin: 0 auto;
@@ -26,3 +30,41 @@ h1 {
     padding : 20px;
     background-color: #fff;
 }
+
+form{
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+}
+
+label {
+    display: block;
+    font-size: 20px;
+}
+
+input[type="text"], textarea{
+    width: 100%;
+    padding:  10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 5px 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
