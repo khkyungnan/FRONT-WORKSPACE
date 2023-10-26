@@ -2,6 +2,7 @@
 <html>
 <head>
 <link rel="stylesheet" type="text/css" href="./css/board-styles.css">
+</script>
 </head>
 <body>
     <div class="container">
@@ -12,7 +13,7 @@
                 <h2>맥주창고 역삼점</h2>
                 <p>메뉴 더보기 -> <a href="https://www.instagram.com/lunch_mz/?hl=ko">클릭</a></p>
             </li>
- 	<li class="lunchMenu">
+ 	        <li class="lunchMenu">
                 <h2>신궁동 감자탕 역삼점</h2>
                 <p>명동칼국수 9000원</p>
             </li>
@@ -28,10 +29,54 @@
             <form class="post-form">
                 <input type="text" placeholder="제목">
                 <textarea placeholder="내용작성하기"></textarea>
-                <button type="submit">작성완료</button>
-            </form>
+                <button type="submit" id="post-button">게시물 작성</button>
+                
+                <button onclick="hihibutton()"> 안녕~~ 버튼이야~~</button>
 
+                <p id="joinCheck"></p>
+                <button onclick="joinButton()">회원가입 하기</button>
+               
+
+
+            </form>
+            <script>
+                function hihibutton() {
+                    alert("안녕 나는 버튼이라고해");
+                }
+
+                function joinButton(){
+                    var txt;
+                    if(confirm("버튼클릭!")) {
+                        txt = "클릭완료 ~";
+                    } else{
+                        txt = "회원가입을 완료하지 못했습니다.";
+                    }
+                    document.getElementById("joinCheck").innerHTML = txt;
+                }
+            </script>
+
+
+
+
+
+            <script>
+                document.addEventListener("DOMContentLoaded", function(){
+                    //1. HTML 버튼 ID 가져오기
+                    const postButton = document.getElementById("post-button");
+
+                    //버튼을 클릭할 때 실행될 함수를 정의
+                    function buttonClick(){
+                        alert("게시물의 내용을 작성해주세요.");
+                    }
+
+                    //버튼 클릭 시 실행될 함수 연결
+                    postButton.addEventListener("click",buttonClick);
+
+                });
+
+            </script>
         </div>
+        
     </div>
 </body>
 </html>
