@@ -80,6 +80,7 @@
                         <p>${commentText}</p>
                         <p>게시일 : ${comment.date.toLocaleString()}</p>
                     `;
+                    //댓글 입력 초기화
                     commentForm.comment.value = "";
                     postDiv.appendChild(commentDiv);
                 });
@@ -87,8 +88,12 @@
                 postDiv.appendChild(deleteButton);
                 postDiv.appendChild(commentForm);
 
-
+                //게시물 목록 추가
                 posts.appendChild(postDiv);
+
+                //게시글 입력 초기화
+                postForm.title.value = "";
+                postForm.content.value = "";
 
 
 

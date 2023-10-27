@@ -32,6 +32,12 @@ h2 {
 }
 
 form{
+    /* 
+    margin : 20px; 상 하 좌 우 모두 20px
+    margin: 20px 0; 상하 20px 좌우 0
+    margin : 10px 20px 30px 40px; 
+            시계방향으로 위(10px), 오른쪽(20px), 아래(30px), 왼쪽(40px)
+    */
     margin: 20px 0;
     padding: 20px;
     background-color: #f9f9f9;
