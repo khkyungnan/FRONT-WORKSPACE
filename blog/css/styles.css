@@ -61,7 +61,13 @@ button[type="submit"]{
     cursor: pointer;
 }
 
-
+.delete-button {
+    background-color: #FF5733;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
 
 
 

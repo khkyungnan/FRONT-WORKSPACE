@@ -7,11 +7,12 @@
     <body>
         <div id="container">
             <h1>블로그 게시판</h1>
+            <img src="https://www.fitpetmall.com/wp-content/uploads/2023/10/b37132cb-8757-4678-b8f6-9f9e25cb04ca-1.png">
+            
             <div id="posts">
                 <!-- 게시물 추가하는 공간-->
             </div>
             <h2>새 게시물 작성</h2>
-            <img src="https://www.fitpetmall.com/wp-content/uploads/2023/10/b37132cb-8757-4678-b8f6-9f9e25cb04ca-1.png">
             <form id="postForm">
                 <label for="title">제목 : </label>
                 <input type="text" id="title" name="title" required>
@@ -47,7 +48,52 @@
                 <p>게시일 : ${date.toLocaleString()}</p>
 
                 `;
+
+                //삭제버튼 생성
+                const deleteButton = document.createElement("button");
+                deleteButton.classList.add("delete-button");
+                deleteButton.innerHTML = "삭제하기";
+                deleteButton.addEventListener("click",() => {
+                    postArray.splice(postArray.indexOf(post),1);
+                    posts.removeChild(postDiv);
+                });
+
+                //댓글 폼 생성
+                const commentForm = document.createElement("form");
+                commentForm.innerHTML = `
+                    <input type="text" name="comment" placeholder="댓글추가하기">
+                    <button type="submit">게시</button>
+                `;
+
+                commentForm.addEventListener("submit", function(event) {
+                    event.preventDefault();
+                    const commentText = commentForm.comment.value;
+                    const comment = {
+                        text : commentText,
+                        date : new Date(),
+                    };
+
+                    post.comments.push(comment);
+                    const commentDiv = document.createElement("div");
+                    commentDiv.classList.add("comment");
+                    commentDiv.innerHTML = `
+                        <p>${commentText}</p>
+                        <p>게시일 : ${comment.date.toLocaleString()}</p>
+                    `;
+                    commentForm.comment.value = "";
+                    postDiv.appendChild(commentDiv);
+                });
+
+                postDiv.appendChild(deleteButton);
+                postDiv.appendChild(commentForm);
+
+
                 posts.appendChild(postDiv);
+
+
+
+
+
 
             })
         </script>
