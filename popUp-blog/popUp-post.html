@@ -9,7 +9,7 @@
             <!-- 게시글 목록이 표시되는 공간 -->
         </ul>
     <h2>게시글 작성</h2>
-    <button id="add-post">게시글 작성</button>
+    <button id="add-post">아이디찾기</button>
     <!--
         <div id="post-form">
             <input type="text" id="post-title" placeholder="제목">
@@ -70,7 +70,7 @@
                                         specs : 팝업 창의 속성 설정을 나타내는 공간
                                         replace : 브라우저 기록에 대한 옵션
                         */
-                    const popupWindow = window.open('', '', 'width=400,height=400');
+                    const popupWindow = window.open('', 'MyPost', 'width=400,height=400');
                     popupWindow.document.write(`<h2>${post.title}</h2>`);
                     popupWindow.document.write(`<p>${post.content}</p>`);
                 });
