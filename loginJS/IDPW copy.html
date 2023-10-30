@@ -18,8 +18,7 @@
                     errorPW.textContent = "비밀번호는 8~32자의 영문 대문자, 소문자, 특수문자, 숫자를 포함해야합니다.";
                     return false;
                 } else {
-                    errorPW.textContent = ""; //유효한 경우 오류 메세지 지우기
-                    
+                    errorPW.textContent = ""; //유효한 경우 오류 메세지 지우기   
                 }
 
                 if(password !== confirmpassword){
@@ -28,8 +27,9 @@
                 } else {
                     errorPW.textContent = "";
                 }
+                
                 alert("회원가입이 완료되었습니다.");
-                return true;
+                return true; 
             }
         </script>
     </head>
