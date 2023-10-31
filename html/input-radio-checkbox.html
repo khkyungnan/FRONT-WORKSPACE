@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>라디오 버튼과 체크박스</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                background-color: #f4f4f4;
+            }
+    
+            h2 {
+                margin-top: 20px;
+            }
+    
+            form {
+                background-color: #fff;
+                padding: 20px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+    
+            form label {
+                display: block;
+                margin-bottom: 10px;
+            }
+    
+            input[type="radio"],
+            input[type="checkbox"] {
+                margin-right: 5px;
+            }
+    
+            p {
+                font-weight: bold;
+            }
+    
+            input[type="radio"],
+            input[type="checkbox"] {
+                display: none;
+            }
+    
+            label {
+                display: flex;
+                align-items: center;
+            }
+    
+            label::before {
+                content: '';
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                margin-right: 10px;
+                border: 2px solid #333;
+                border-radius: 50%;
+                transition: background-color 0.2s, border-color 0.2s;
+            }
+    
+            input[type="radio"] + label::before,
+            input[type="checkbox"] + label::before {
+                content: '';
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                margin-right: 10px;
+                border: 2px solid #333;
+                border-radius: 2px;
+                transition: background-color 0.2s, border-color 0.2s;
+            }
+    
+            input[type="radio"]:checked + label::before,
+            input[type="checkbox"]:checked + label::before {
+                background-color: #007bff;
+                border-color: #007bff;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>라디오 버튼 예제</h2>
+        <form>
+            <label>
+                <input type="radio" name="gender" value="male" id="maleRadio">
+                남성 
+            </label>
+            <label>
+                <input type="radio" name="gender" value="female" id="femaleRadio">
+                여성
+            </label>
+            <label>
+                <input type="radio" name="gender" value="other" id="otherRadio">
+                기타
+            </label>
+        </form>
+        <p id="genderResult"> 선택된 성별 : </p>
+
+        <h2>체크박스 예제</h2>
+        <form>
+            <label>
+                <input type="checkbox" name="fruits" value="apple">
+                사과
+            </label>
+            <label>
+                <input type="checkbox" name="fruits" value="banana">
+                바나나
+            </label>
+            <label>
+                <input type="checkbox" name="fruits" value="orange">
+                오렌지
+            </label>
+        </form>
+        <script>
+            //라디오 버튼 이벤트 처리
+            const genderResult = document.getElementById("genderResult");
+            const maleRadio = document.getElementById("maleRadio");
+            const femaleRadio = document.getElementById("femaleRadio");
+            const otherRadio = document.getElementById("otherRadio");
+
+            maleRadio.addEventListener("change", updateGenderResult);
+            femaleRadio.addEventListener("change",updateGenderResult);
+            otherRadio.addEventListener("change",updateGenderResult);
+
+            function updateGenderResult(){
+                if(maleRadio.checked){
+                    genderResult.textContent = "선택된 성별 : 남성";
+                } else if (femaleRadio.checked){
+                    genderResult.textContent = "선택된 성별 : 여성";
+                } else if (otherRadio.checked){
+                    genderResult.textContent = "선택된 성별 : 기타";
+                }
+            }
+        </script>
+    </body>
+</html>
