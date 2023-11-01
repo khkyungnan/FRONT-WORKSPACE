@@ -16,7 +16,7 @@
 
         <div id="imageContainer">
             <!-- 이미지를 표시할 컨테이너 -->
-            <img id="uploadImage">
+            <img id="uploadImage" style="width: 200px;">
         </div>
         <script>
             //파일을 업로드하는 버튼 클릭시 이벤트 처리
@@ -27,13 +27,26 @@
 
                 //만약에 파일이 존재한다면 이미지를 보여주겠다.
                 if(fileInput.files.length >0){
+                    //파일 입력 필드에서 선택한 파일 목록에서
+                    //첫번째 파일을 가져온 후, 마치 사용자가 
+                    //한 파일만 선택한 것이라고 판단하게 함
                     var file = fileInput.files[0];
+                    //현재는 빈 값임 빈값인 파일을 읽기 위한 FileReader() 객체를 
+                    //생성한 것일 뿐
                     var reader = new FileReader();
-
+                    //FileReader에는 onload라는 메서드가 존재함
+                    //파일 읽기가 완료 될 때 호출
                     reader.onload = function (e) {
+                        // UploadImage.src 이미지 주소를 추가함
+                        // e.target.result = FileReader가 읽은 파일의 데이터 URL를 나타냄
                         uploadImage.src = e.target.result;//업로드 된 이미지를 표시
+                        //이미지 컨테이너에 스타일을 적용해서 이미지를 보여줌
                         imageContainer.style.display = "block"; //이미지를 보여줌
                     };
+                    /*
+                    FileReader 사용해서 선택한 file을 DataURL로 읽은 후 문자열로 표현하여
+                    표시하는 것
+                    */
                     reader.readAsDataURL(file); //파일을 Data URL 읽는 것
 
                 }
