@@ -26,7 +26,17 @@
                 var imageContainer = document.getElementById("imageContainer");
 
                 //만약에 파일이 존재한다면 이미지를 보여주겠다.
-                if(fileInput.files.length >0){
+                /*
+                <input type="file" id="fileInput" accept="image/*">
+                type="file" 밑에는 다양한 객체가 존재함
+                그중 하나인 files는 사용자가 선택한 파일을 접근할 수 있게 도와주는 객체
+
+                files.length : 사용자가 선택한 파일의 수를 나타내는 속성
+                                여러 파일을 선택했을 때 수를 측정할 수 있음
+                files.[index] : 선택한 파일 목록에서 파일의 위치를 가리킴
+                                0부터 시작해서 length보다 작은 값에 접근할 수 있음
+                */
+                if(fileInput.files.length > 0) {
                     //파일 입력 필드에서 선택한 파일 목록에서
                     //첫번째 파일을 가져온 후, 마치 사용자가 
                     //한 파일만 선택한 것이라고 판단하게 함
@@ -49,6 +59,8 @@
                     */
                     reader.readAsDataURL(file); //파일을 Data URL 읽는 것
 
+                } else{
+                    alert("이미지 파일을 선택하세요.");
                 }
             })
         </script>
