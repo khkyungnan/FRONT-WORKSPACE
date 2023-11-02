@@ -24,7 +24,9 @@
         <script>
             let total = 0;
 
+            // 추가 버튼이 클릭될 때 마다 실행되는 함수
             function addItem() {
+                // document.getElementById : 입력하는 곳의 값과 목록을 관리할 값을 가져옴
                 const itemInput = document.getElementById("item");
                 const priceInput = document.getElementById("price");
                 const countInput = document.getElementById("count");
@@ -44,14 +46,19 @@
                 // 숫자값이 들어가지만 다양한 변수를 막아주기 위해
                 // parseInt를 사용하는 것을 권장함
                 
+                // 물건의 총 가격을 계산하고 그 값을 저장한 곳
                 const totalPriceCount = priceValue * countValue;
 
+                //새로운 물건 항목을 생성한 후, 해당 항목을 목록에 물건을 추가
                 const listItem = document.createElement("li");
+                //textContent : 물건이름 가격 갯수 총 가격을 보여줌
+                //textContent : 텍스트 내용을 나타낼 수 있게 해주는 속성
+                //              새로운 값으로 변경해줌
                 listItem.textContent = `${itemValue} | 가격 : ${priceValue} 원 X ${countValue} = ${totalPriceCount} 원`;
                 itemList.appendChild(listItem);
 
                 total += totalPriceCount;
-                totalPrice.textContent = total + "원";
+                totalPrice.textContent = total;
 
                 itemInput.value = "";
                 priceInput.value = "0";

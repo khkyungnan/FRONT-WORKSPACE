@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>블로그</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header><br>
+        <h2>Blog</h2>
+        <img src="./img/dsfsddf.jpg" style="width: 300px; height: 300px;">
+
+        <h6>노래재생</h6>
+        <audio id = "myAudio" controls>
+            <source src="./mp3/titanium-170190.mp3" type="audio/mpeg">
+        </audio>
+
+        <script>
+            const audio = document.getElementById('myAudio');
+            audio.play();
+        </script><br>
+        
+            <ul>
+                <button type="button" onclick="location.href='./pictures.html'">쿵야사진</button>
+                <button type="button" onclick="location.href='./popup-post.html'">팝업 게시물 작성</button>
+                <button type="button" onclick="location.href='./img-upload.html'">이미지 업로드</button>
+                <button type="button" onclick="location.href='./pagination.html'">pagination</button>
+                <button type="button" onclick="location.href='./visitor.html'">방명록</button>
+                <button type="button" onclick="location.href='./goodsCul.html'">계산기</button>
+
+            </ul>
+
+    <section>
+  
+    <script>
+        function addComment() {
+        const commentInput = document.getElementById("commentInput");
+        const commentText = commentInput.value;
+
+            if(commentText.trim() === ""){
+                alert("댓글을 작성해주세요.");
+                return;
+            }
+        const commentsBox = document.getElementById("comments");
+        const commentDIV = document.createElement("div");
+        commentDIV.className = "comment";
+        commentDIV.textContent = commentText;
+
+        commentsBox.appendChild(commentDIV);
+        commentInput.value="";  
+    }
+    </script>
+   
+   
+      <div id="outer">
+        <div class="snowflakes" aria-hidden="true">
+        <div class="snowflake" style="font-size: 12px">❆</div>
+        <div class="snowflake" style="font-size: 22px">❆</div>
+        <div class="snowflake" style="font-size: 12px">❆</div>
+        <div class="snowflake" style="font-size: 35px">❆</div>
+        <div class="snowflake" style="font-size: 12px">❆</div>
+        <div class="snowflake" style="font-size: 30px">❆</div>
+        <div class="snowflake" style="font-size: 12px">❆</div>
+        <div class="snowflake" style="font-size: 25px">❆</div>
+        <div class="snowflake" style="font-size: 16px">❆</div>
+        <div class="snowflake" style="font-size: 22px">❆</div>
+        <div class="snowflake" style="font-size: 12px">❆</div>
+        <div class="snowflake" style="font-size: 12px">❆</div>
+        <div class="snowflake" style="font-size: 10px">❆</div>
+        <div class="snowflake" style="font-size: 12px">❆</div>
+        <div class="snowflake" style="font-size: 18px">❆</div>
+        <div class="snowflake" style="font-size: 12px">❆</div>
+        <div class="snowflake" style="font-size: 17px">❆</div>
+        <div class="snowflake" style="font-size: 25px">❆</div>
+        <div class="snowflake" style="font-size: 12px">❆</div>
+        <div class="snowflake" style="font-size: 24px">❆</div>
+        </div>
+  <script>
+        $(document).ready(function() {
+        var snowCount = 200; // 원하는 눈의 개수를 설정
+        for (var i = 0; i < snowCount; i++) {
+            $('<div class="snow"></div>').appendTo('body');
+        }
+        function getRandomColor() {
+            var letters = '0123456789ABCDEF';
+            var color = '#';
+            for (var i = 0; i < 6; i++) {
+            color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+        var snowElements = document.getElementsByClassName('snow');
+        for (var i = 0; i < snowElements.length; i++) {
+            var snowElement = snowElements[i];
+            snowElement.style.setProperty('--snow-color', getRandomColor());
+        }
+        });
+  </script>
+
+</header>
+</body>
+<foot>
+    
+</foot>
+
+</html>
