@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>이미지 올리기</title>
+</head>
+<body>
+    <h1>이미지</h1>
+    <div id="post-list"></div>
+    <button id="add-post">이미지추가</button>
+
+    <script>
+        // 게시글 목록을 가져오고 화면에 나타내기
+        function displayPosts() {
+            const postList = document.getElementById('post-list');
+            postList.innerHTML = '';
+
+                const key = localStorage.key(0);
+
+                if (key.startsWith('post-')) {
+                    const post = JSON.parse(localStorage.getItem(key));
+                    const image = post.image;
+                    const imageElement = document.createElement('img');
+                    imageElement.src = image;
+                    imageElement.alt = '이미지';
+                    postList.appendChild(imageElement);
+                }
+            
+        }
+
+        // add-post 버튼을 클릭했을 때 새 창에서 이미지 업로드 
+        document.getElementById('add-post').addEventListener('click', () => {
+            const popupWindow = window.open('', '', 'width=400,height=400');
+            const popupDocument = popupWindow.document;
+
+            popupDocument.write('<h2>이미지 업로드</h2>');
+            popupDocument.write('<input type="file" id="image-upload" accept="image/*"><br>');
+            popupDocument.write('<img id="image-preview" style="max-width: 100%; max-height: 200px;"><br>');
+            popupDocument.write('<button id="save-post">저장</button>');
+
+            const imageUploadInput = popupDocument.getElementById('image-upload');
+            const imagePreview = popupDocument.getElementById('image-preview');
+
+            imageUploadInput.addEventListener('change', () => {
+                const selectedImage = imageUploadInput.files[0];
+                if (selectedImage) {
+                    const reader = new FileReader();
+
+                    reader.onload = (e) => {
+                        imagePreview.src = e.target.result;
+                    };
+
+                    reader.readAsDataURL(selectedImage);
+                }
+            });
+
+            popupDocument.getElementById('save-post').addEventListener('click', () => {
+                const imageLoad = imagePreview.src;
+
+                if (imageBase64) {
+                    const postKey = `post-${Date.now()}`;
+                    const post = { image: imageLoad };
+                    localStorage.setItem(postKey, JSON.stringify(post));
+                    displayPosts();
+                    popupWindow.close();
+                }
+            });
+        });
+
+        // 초기 게시글 목록 표시
+        displayPosts();
+    </script>
+</body>
+</html>
