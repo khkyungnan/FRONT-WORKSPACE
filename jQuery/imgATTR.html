@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>이미지 변경하기</title>
+        <script src="./js/jquery-3.7.1.js"></script>
+        <script>
+            /*
+            attr() : jQuery 사용되는 메서드
+                attribute
+                1. attr() 사용해서 속성 읽기
+                    var value = $("선택자").attr("속성이름");
+                    //이미지 요소 src 속성 값을 가져올 예제코드
+                        val srcValue = $("img").attr("src");
+
+                2. attr() 사용해서 속성값 변경하기
+                    $("선택자").attr("속성이름", "새로운값");
+                    //이미지 요소의 src 속성 값을 변경
+                    $("img").attr("src","새로운이미지.jpg");
+                    
+            */
+
+            $(function() {
+                $("button").on("click",function(){
+                    $("img[alt='cute1']").attr("src","./img/cute3.png");
+                   // $("img").attr("src","./img/cute3.png");
+                });
+            });
+        </script>
+        <style>
+            img {
+                width: 200px;
+                height: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <button>이미지 변경하기</button>
+        <img src="./img/cute1.png" alt="cute1">
+        <img src="./img/cute2.jpg">
+    </body>
+</html>
