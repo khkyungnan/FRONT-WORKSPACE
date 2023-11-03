@@ -17,11 +17,20 @@
                     //이미지 요소의 src 속성 값을 변경
                     $("img").attr("src","새로운이미지.jpg");
                     
+                    만약에 요소 전체가 아닌 특정 요소(태그)만 변경하고 싶다면
+                    id나 class, name, alt 등의 값을 이용해서 
+                    요소에서 특정값만 변경할 수 있음
+                    $(선택자[속성값]).attr("src","새로운값");
+                    // 이미지 요소의 src 속성 값을 특정 이미지 요소만 변경
+                    <img src="./img/cute1.png" alt="cute1">
+                     $("img[alt='cute1']").attr("src","./img/cute3.png");
+                     alt=cute1 값을 이용해서 alt에 cute1이 작성된 이미지만 변경
             */
 
             $(function() {
                 $("button").on("click",function(){
                     $("img[alt='cute1']").attr("src","./img/cute3.png");
+                    $("img[alt='cute2']").attr("src","./img/cute4.jpg");
                    // $("img").attr("src","./img/cute3.png");
                 });
             });
@@ -36,6 +45,6 @@
     <body>
         <button>이미지 변경하기</button>
         <img src="./img/cute1.png" alt="cute1">
-        <img src="./img/cute2.jpg">
+        <img src="./img/cute2.jpg" alt="cute2">
     </body>
 </html>
