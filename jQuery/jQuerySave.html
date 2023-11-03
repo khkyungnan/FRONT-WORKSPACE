@@ -16,10 +16,29 @@
                     */
                 });
             });
+
+            // li 요소 갯수 세는 script
+            $(function() {
+                // <li> 태그 요소를 모두 선택해서 변수 items에 저장
+                var items = $("li"); 
+                $("button").on("click", function(){
+                    $("#len").text("li의 총 갯수는 : " + items.length);
+                })
+            })
         </script>
     </head>
     <body>
-        <h1>Form li 요소 선택하기</h1>
+        <h1>li 요소 선택한 후 선택된 갯수 구하기</h1>
+        <ul>
+            <li> 1 </li>
+            <li> 2 </li>
+        </ul>
+        <button>li 갯수를 확인하기</button>
+        <p id="len"></p>
+        <br><br><br><br><br>
+
+
+        <h1>Form input 요소 선택하기</h1>
         <form>
             <input type="checkbox" name="inputName" value="one">
             <span>one</span>
@@ -35,5 +54,7 @@
         </form>
 
         <button>체크 확인 버튼</button>
+
+        
     </body>
 </html>
